@@ -4,14 +4,14 @@ function part1(){
 	fs.readFile('./input.txt', (err, data) => {
 		const dataString = data.toString(); // File to String
 		const segments = dataString.split('\n')
-									.filter(Boolean)
-									.map((line) => { 
-										const [from, to] =  line.split(' -> ').map((point) => {
-															const [x,y] = point.split(',').map(Number);
-															return {x, y};
-															}); 
-										return { from, to};
-									});
+				.filter(Boolean)
+				.map((line) => { const [from, to] =  line.split(' -> ')
+									.map((point) => {
+										const [x,y] = point.split(',').map(Number);
+										return {x, y};
+									 }); 
+						return { from, to};
+				});
 
 		const filteredSegments = segments.filter((s) => s.from.x === s.to.x || s.from.y === s.to.y);
 		
@@ -59,16 +59,14 @@ function part2() {
 	fs.readFile('./input.txt', (err, data) => {
 	const dataString = data.toString(); // File to String
 	const segments = dataString.split('\n')
-								.filter(Boolean)
-								.map((line) => { 
-									const [from, to] =  line.split(' -> ').map((point) => {
-														const [x,y] = point.split(',').map(Number);
-														return {x, y};
-														}); 
-									return { from, to};
-								});
-
-
+			.filter(Boolean)
+			.map((line) => { 
+				const [from, to] =  line.split(' -> ').map((point) => {
+									const [x,y] = point.split(',').map(Number);
+									return {x, y};
+									}); 
+				return { from, to};
+			});
 
 	const segmentAllPoints = new Map();
 	let counter = 0;
@@ -110,11 +108,3 @@ function part2() {
 }
 
 part2();
-
-
-
-
-
-
-
-
